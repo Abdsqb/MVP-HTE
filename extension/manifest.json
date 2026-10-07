@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Formwise",
+  "version": "0.1.0",
+  "description": "Fill insurance carrier portals from a reviewed Formwise client profile. Never submits for you.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["http://localhost/*", "http://127.0.0.1/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "Formwise", "default_popup": "popup.html" },
+  "content_scripts": [
+    {
+      "matches": ["http://localhost/*", "http://127.0.0.1/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
